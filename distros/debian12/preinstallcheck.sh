@@ -6,7 +6,7 @@ PreInstallCheck() {
 	echo -n "Preparing to install... "
 	# Check source.list
 	contrib=$(grep 'contrib' /etc/apt/sources.list | grep -v "cdrom")
-	nonfree=$(grep 'non-free' /etc/apt/sources.list | grep -v "cdrom")
+	nonfree=$(grep  -E 'non-free([^-]|$)' /etc/apt/sources.list | grep -v "cdrom")
 	if [ -z "$contrib" ]; then
 		if [ -z "$nonfree" ]; then
 			sed -i 's/main/main contrib non-free/' /etc/apt/sources.list;
