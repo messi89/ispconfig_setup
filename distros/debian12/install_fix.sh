@@ -16,6 +16,12 @@ InstallFix(){
 	update-ca-certificates > /dev/null 2>&1
 	sed -i 's/;openssl.cafile=/openssl.cafile=\/etc\/ssl\/certs\/ca-certificates.crt/' /etc/php/8.2/apache2/php.ini
 	sed -i 's/;openssl.cafile=/openssl.cafile=\/etc\/ssl\/certs\/ca-certificates.crt/' /etc/php/8.2/fpm/php.ini
+	
+	echo "
+<Directory /var/lib/roundcube>
+ Require all granted
+</Directory>
+">>/etc/apache2/sites-available/ispconfig.conf
 	if [ "$CFG_WEBSERVER" == "apache" ]; then
 		systemctl reload apache2
 		systemctl reload php8.2-fpm 
