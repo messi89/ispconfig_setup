@@ -78,5 +78,5 @@ sed -i '/location\s\/squirrelmail\s{/ s/^/#/' /etc/nginx/sites-available/ispconf
 
 
     systemctl restart nginx
-    systemctl restart php7.3-fpm
+    systemctl restart php8.2-fpm
 }
