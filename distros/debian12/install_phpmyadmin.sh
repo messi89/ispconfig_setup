@@ -3,5 +3,5 @@
 #    Install and configure phpMyAdmin
 #---------------------------------------------------------------------
 InstallphpMyAdmin() {
-    apt-get install -yqq  phpmyadmin
+    apt_install  phpmyadmin
 }
