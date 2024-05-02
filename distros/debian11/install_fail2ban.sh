@@ -77,17 +77,17 @@ EOF
   esac
 
 cat >> /etc/fail2ban/jail.local <<EOF
-[pureftpd]
+[pure-ftpd]
 enabled = true
 port = ftp
 filter = pure-ftpd
 logpath = /var/log/syslog
 maxretry = 3
 
-[postfix-sasl]
+[postfix]
 enabled = true
 port = smtp
-filter = postfix-sasl
+filter = postfix
 logpath = /var/log/mail.log
 maxretry = 5
 
